@@ -1,3 +1,18 @@
+<script>
+    import supabase from '$lib/db';
+
+    let email;
+    let password;
+
+    async function loginUser() {
+   	 const { error } = await supabase.auth.signIn({
+   		 email,
+   		 password
+   	 });
+
+   	 if (error) alert(error.message); // alert if error
+    }
+</script>
 <div class="card mt-5 m-auto text-center" style="width: 24em;">
     <div class="card-body">
    	 <h5 class="card-title">Welcome Back</h5>
