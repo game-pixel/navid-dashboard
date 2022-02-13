@@ -8,10 +8,7 @@
     }
 
 </script>
-<!-- Sign Out -->
-<section class="container px-4 py-3 text-center">
-    <button class="btn btn-primary" on:click={logout}>Logout</button>
-</section>
+
 
 <h1>Dashboard</h1>
 <table class="table table-sm table-dark table-bordered table caption-top">
@@ -55,3 +52,8 @@
       </tr>
     </tbody>
   </table>
+
+  <!-- Sign Out -->
+<section class="container px-4 py-3 text-center">
+    <button class="btn btn-dark" on:click={logout}>Logout</button>
+</section>
