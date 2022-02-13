@@ -187,6 +187,7 @@
 
 <br>
 <br>
+<div class="container">
 <h1>Dashboard</h1>
 <table class="table table-sm table-bordered table caption-top">
     <caption>School Timetable</caption>
@@ -249,6 +250,7 @@
       </tr>
     </tbody>
   </table>
+</div>
 
   
 
