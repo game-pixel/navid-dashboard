@@ -217,19 +217,35 @@
       </tr>
       <tr>
         <th scope="row">Tue</th>
-        
+        {#each timetable.Tuesday as timeSlot}
+         <td colspan={timeSlot.period} class={timeSlot.style}>
+            <button class="btn">{timeSlot.name}</button>
+         </td>
+         {/each}
       </tr>
       <tr>
         <th scope="row">Wed</th>
-   
+        {#each timetable.Wednesday as timeSlot}
+         <td colspan={timeSlot.period} class={timeSlot.style}>
+            <button class="btn">{timeSlot.name}</button>
+         </td>
+         {/each}
       </tr>
       <tr>
         <th scope="row">Thu</th>
-       
+        {#each timetable.Thursday as timeSlot}
+        <td colspan={timeSlot.period} class={timeSlot.style}>
+           <button class="btn">{timeSlot.name}</button>
+        </td>
+        {/each}
       </tr>
       <tr>
         <th scope="row">Fri</th>
-
+        {#each timetable.Friday as timeSlot}
+         <td colspan={timeSlot.period} class={timeSlot.style}>
+            <button class="btn">{timeSlot.name}</button>
+         </td>
+         {/each}
       </tr>
     </tbody>
   </table>
