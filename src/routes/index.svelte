@@ -13,7 +13,7 @@
     <button class="btn btn-secondary" on:click={logout}>Logout</button>
 </section>
 
-<h1>"Dashboard"</h1>
+<h1>Dashboard</h1>
 <table class="table table-dark table-hover table-bordered">
     <thead>
       <tr>
