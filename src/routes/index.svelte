@@ -13,6 +13,7 @@
     <button class="btn btn-secondary" on:click={logout}>Logout</button>
 </section>
 
+<h1>"Dashboard"</h1>
 <table class="table table-dark table-hover table-bordered">
     <thead>
       <tr>
@@ -30,7 +31,7 @@
         <th scope="col">10</th>
       </tr>
     </thead>
-    <thead>
+    <tbody>
       <tr>
         <th scope="row">Mon</th>
         <td>Mark</td>
@@ -60,5 +61,5 @@
         <td>Thornton</td>
         <td>@fat</td>
       </tr>
-    </thead>
+    </tbody>
   </table>
