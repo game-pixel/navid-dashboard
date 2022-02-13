@@ -209,7 +209,11 @@
     <tbody>
       <tr>
         <th scope="row">Mon</th>
-        
+         {#each timetable.Monday as timeSlot}
+         <td colspan={timeSlot.period} class={timeSlot.style}>
+            <button class="btn">{timeSlot.name}</button>
+         </td>
+         {/each}
       </tr>
       <tr>
         <th scope="row">Tue</th>
