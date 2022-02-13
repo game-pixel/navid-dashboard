@@ -14,7 +14,7 @@
 </section>
 
 <h1>Dashboard</h1>
-<table class="table table-dark table-hover table-bordered">
+<table class="table table-sm table-dark table-hover table-bordered">
     <thead>
       <tr>
         <th scope="col">#</th>
