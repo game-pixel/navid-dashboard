@@ -30,7 +30,7 @@
         <th scope="col">10</th>
       </tr>
     </thead>
-    <tbody>
+    <thead>
       <tr>
         <th scope="row">Mon</th>
         <td>Mark</td>
@@ -60,5 +60,5 @@
         <td>Thornton</td>
         <td>@fat</td>
       </tr>
-    </tbody>
+    </thead>
   </table>
