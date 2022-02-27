@@ -174,6 +174,21 @@
 		]
 	};
 
+	let curDay;
+	let curIndex;
+	let curName;
+	let curPeriod;
+	let curStyle;
+
+    function showCurData(day,index,name,period,style){
+	    curDay = day
+        curIndex = index
+        curName = name
+        curPeriod = period
+        curStyle = style
+
+	}
+
 	function addTimeSlot(day) {
 		if (day === 'Monday') {
 			timetable.Monday = [...timetable.Monday, { name: '??', period: 1, style: '' }];
@@ -219,57 +234,68 @@
 		<tbody>
 			<tr>
 				<th scope="row">Mon</th>
-				{#each timetable.Monday as timeSlot}
+				{#each timetable.Monday as timeSlot,index}
 					<td colspan={timeSlot.period} class={timeSlot.style}>
-						<button class="btn">{timeSlot.name}</button>
+						<button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+						on:click={()=>showCurData("Monday", index, timeSlot.name, timeSlot.period, timeSlot.style)}>
+						{timeSlot.name}</button> 
+					    
 					</td>
 				{/each}
 				<td>
-					<button class="btn" on:click={() => addTimeSlot('Monday')} data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+					<button class="btn" on:click={() => addTimeSlot('Monday')} >+</button>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">Tue</th>
-				{#each timetable.Tuesday as timeSlot}
+				{#each timetable.Tuesday as timeSlot,index}
 					<td colspan={timeSlot.period} class={timeSlot.style}>
-						<button class="btn">{timeSlot.name}</button>
+						<button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+						on:click={()=>showCurData("Tuesday", index, timeSlot.name, timeSlot.period, timeSlot.style)}>
+						{timeSlot.name}</button> 
 					</td>
 				{/each}
 				<td>
-					<button class="btn" on:click={() => addTimeSlot('Tuesday')} data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+					<button class="btn" on:click={() => addTimeSlot('Tuesday')}>+</button>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">Wed</th>
-				{#each timetable.Wednesday as timeSlot}
+				{#each timetable.Wednesday as timeSlot,index}
 					<td colspan={timeSlot.period} class={timeSlot.style}>
-						<button class="btn">{timeSlot.name}</button>
+						<button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+						on:click={()=>showCurData("Wednesday", index, timeSlot.name, timeSlot.period, timeSlot.style)}>
+						{timeSlot.name}</button> 
 					</td>
 				{/each}
 				<td>
-					<button class="btn" on:click={() => addTimeSlot('Wednesday')} data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+					<button class="btn" on:click={() => addTimeSlot('Wednesday')}>+</button>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">Thu</th>
-				{#each timetable.Thursday as timeSlot}
+				{#each timetable.Thursday as timeSlot,index}
 					<td colspan={timeSlot.period} class={timeSlot.style}>
-						<button class="btn">{timeSlot.name}</button>
+						<button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+						on:click={()=>showCurData("Thursday", index, timeSlot.name, timeSlot.period, timeSlot.style)}>
+						{timeSlot.name}</button> 
 					</td>
 				{/each}
 				<td>
-					<button class="btn" on:click={() => addTimeSlot('Thursday')} data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+					<button class="btn" on:click={() => addTimeSlot('Thursday')}>+</button>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">Fri</th>
-				{#each timetable.Friday as timeSlot}
+				{#each timetable.Friday as timeSlot,index}
 					<td colspan={timeSlot.period} class={timeSlot.style}>
-						<button class="btn">{timeSlot.name}</button>
+						<button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+						on:click={()=>showCurData("Monday", index, timeSlot.name, timeSlot.period, timeSlot.style)}>
+						{timeSlot.name}</button> 
 					</td>
 				{/each}
 				<td>
-					<button class="btn" on:click={() => addTimeSlot('Friday')} data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+					<button class="btn" on:click={() => addTimeSlot('Friday')}>+</button>
 				</td>
 			</tr>
 		</tbody>
