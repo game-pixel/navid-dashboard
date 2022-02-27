@@ -202,6 +202,18 @@
 			timetable.Friday = [...timetable.Friday, { name: '??', period: 1, style: '' }];
 		}
 	}
+	
+    function deleteTimeSlot(day,index){
+        timetable[day].splice(index,1)
+		timetable=timetable;
+	}
+
+	function setTimeSlot(day,index,newName,newPeriod,newStyle){
+		timetable[day][index].name=newName;
+		timetable[day][index].period=newPeriod;
+		timetable[day][index].style=newStyle;
+	}
+
 	async function logout() {
 		const { error } = await supabase.auth.signOut();
 
@@ -290,7 +302,7 @@
 				{#each timetable.Friday as timeSlot,index}
 					<td colspan={timeSlot.period} class={timeSlot.style}>
 						<button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-						on:click={()=>showCurData("Monday", index, timeSlot.name, timeSlot.period, timeSlot.style)}>
+						on:click={()=>showCurData("Friday", index, timeSlot.name, timeSlot.period, timeSlot.style)}>
 						{timeSlot.name}</button> 
 					</td>
 				{/each}
@@ -319,21 +331,17 @@
 			<div class="modal-body">
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Name</span>
-					<input
-						type="text"
-						class="form-control"
-					/>
+					<input type="string" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+					bind:value={curName}>
 				</div>
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Period</span>
-					<input
-						type="number"
-						class="form-control"
-					/>
+					<input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+					bind:value={curPeriod}>
 				</div>
 				<div class="input-group mb-3">
 					<label class="input-group-text" for="inputGroupSelect01">Style</label>
-					<select class="form-select" id="inputGroupSelect01">
+					<select class="form-select" id="inputGroupSelect01"  bind:value={curStyle}>
 					  <option value="">Default</option>
 					  <option value="table-primary">Blue</option>
 					  <option value="table-success">Green</option>
@@ -346,8 +354,10 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-				<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
-				<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+				<button type="button" class="btn btn-danger" data-bs-dismiss="modal" 
+				on:click={()=>{deleteTimeSlot(curDay,curIndex)}}>Delete</button>
+				<button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+				on:click={()=>{setTimeSlot(curDay,curIndex,curName,curPeriod,curStyle)}}>Save changes</button>
 			</div>
 		</div>
 	</div>
