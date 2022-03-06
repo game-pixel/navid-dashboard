@@ -206,12 +206,14 @@
     function deleteTimeSlot(day,index){
         timetable[day].splice(index,1)
 		timetable=timetable;
+		saveEntry()
 	}
 
 	function setTimeSlot(day,index,newName,newPeriod,newStyle){
 		timetable[day][index].name=newName;
 		timetable[day][index].period=newPeriod;
 		timetable[day][index].style=newStyle;
+		saveEntry()
 	}
 
 	async function logout() {
@@ -219,7 +221,31 @@
 
 		if (error) alert(error.message); // alert if error
 	}
+
+	async function saveEntry() {
+	const { error } = await supabase.from("studentEntries").upsert(
+	  {
+		user_id: supabase.auth.user().id,
+		timetable: timetable,
+	  },
+	  { onConflict: "user_id" }
+	);
+	if (error) alert(error.message);
+  }
+
+  async function getEntries() {
+  const { data, error } = await supabase.from("studentEntries").select();
+  if (error) alert(error.message);
+
+  if (data != "") {
+    timetable = data[0].timetable;
+  }
+}
+
+getEntries();
+
 </script>
+
 
 <br />
 <br />
